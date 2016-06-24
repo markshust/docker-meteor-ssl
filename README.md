@@ -10,7 +10,12 @@ This is a bundle containing all of your certificates including the provided CA c
 
     cat domain.com.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt > bundle.crt
 
+## dhparams.pem
+
+Generate your own dhparams.pem file, unique for your app:
+
+    openssl dhparam -out dhparams.pem 2048
+
 ## Usage
 
-    docker run -d -v /root/bundle.crt:/bundle.crt -v /root/private.key:/private.key --link=meteor markoshust/meteor-ssl
-
+    docker run -d -v /root/bundle.crt:/bundle.crt -v /root/private.key:/private.key -v /root/dhparams.pem:/dhparams.pem --link=myapp:meteor markoshust/meteor-ssl
