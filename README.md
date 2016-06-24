@@ -18,4 +18,4 @@ Generate your own dhparams.pem file, unique for your app:
 
 ## Usage
 
-    docker run -d -v /root/bundle.crt:/bundle.crt -v /root/private.key:/private.key -v /root/dhparams.pem:/dhparams.pem --link=myapp:meteor -P markoshust/meteor-ssl
+    docker run -d -v /root/bundle.crt:/bundle.crt -v /root/private.key:/private.key -v /root/dhparams.pem:/dhparams.pem --link=myapp:meteor -p 80:80 -p 443:443 markoshust/meteor-ssl
